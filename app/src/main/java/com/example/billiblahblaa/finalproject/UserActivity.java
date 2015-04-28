@@ -107,6 +107,58 @@ public class UserActivity extends ActionBarActivity {
                 }
             });
 
+            mRegUser.where().field("id").eq(id).execute(new TableQueryCallback<RegUser>() {
+                public void onCompleted(List<RegUser> result, int count, Exception exception,
+                                        ServiceFilterResponse response) {
+
+                    if (exception == null) {
+                        if(result.size() > 0)
+                        {
+
+                            RegUser item = result.get(0);
+                            String course1 = item.getCourse1();
+                            String course2 = item.getCourse2();
+                            String course3 = item.getCourse3();
+                            String course4 = item.getCourse4();
+                            String course5 = item.getCourse5();
+                            String course6 = item.getCourse6();
+                            String course7 = item.getCourse7();
+                            String course8 = item.getCourse8();
+                            String course9 = item.getCourse9();
+                            String course10 = item.getCourse10();
+
+                            TextView tvCourse1 = (TextView)findViewById(R.id.tvC1);
+                            TextView tvCourse2 = (TextView)findViewById(R.id.tvC2);
+                            TextView tvCourse3 = (TextView)findViewById(R.id.tvC3);
+                            TextView tvCourse4 = (TextView)findViewById(R.id.tvC4);
+                            TextView tvCourse5 = (TextView)findViewById(R.id.tvC5);
+                            TextView tvCourse6 = (TextView)findViewById(R.id.tvC6);
+                            TextView tvCourse7 = (TextView)findViewById(R.id.tvC7);
+                            TextView tvCourse8 = (TextView)findViewById(R.id.tvC8);
+                            TextView tvCourse9 = (TextView)findViewById(R.id.tvC9);
+                            TextView tvCourse10 = (TextView)findViewById(R.id.tvC10);
+
+                            tvCourse1.setText(course1);
+                            tvCourse2.setText(course2);
+                            tvCourse3.setText(course3);
+                            tvCourse4.setText(course4);
+                            tvCourse5.setText(course5);
+                            tvCourse6.setText(course6);
+                            tvCourse7.setText(course7);
+                            tvCourse8.setText(course8);
+                            tvCourse9.setText(course9);
+                            tvCourse10.setText(course10);
+
+                        }
+
+                    } else {
+                        AlertDialog ad = adb.create();
+                        ad.setMessage("Error : " + exception.getCause().getMessage());
+                        ad.show();
+                    }
+                }
+            });
+
         }
 
     }

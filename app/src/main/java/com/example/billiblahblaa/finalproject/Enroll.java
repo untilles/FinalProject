@@ -108,9 +108,13 @@ public class Enroll extends ActionBarActivity {
 
         // Check Event Command
         if ("Select".equals(CmdName)) {
-            String s_id = mAdapter.getItem(info.position).getId().toString();
-            //String s_name = mAdapter.getItem(info.position).getId().toString();
-            //String s_username = mAdapter.getItem(info.position).getUsername().toString();
+            String s_id = mAdapter.getItem(info.position).getCourseCode().toString() + " " +
+                    mAdapter.getItem(info.position).getCourseName().toString() + "\nSection " +
+                    mAdapter.getItem(info.position).getCourseSection().toString() + " Room " +
+                    mAdapter.getItem(info.position).getCourseRoom().toString() + "\n" +
+                    mAdapter.getItem(info.position).getCourseDay().toString() + " " +
+                    mAdapter.getItem(info.position).getCourseTime().toString();
+            //String s_id = mAdapter.getItem(info.position).getId().toString();
 
             Toast.makeText(Enroll.this,"Your Selected Update ",Toast.LENGTH_LONG).show();
 
